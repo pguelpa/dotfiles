@@ -1,3 +1,13 @@
+[alias]
+  st = status
 [user]
   name = Paul Guelpa
   email = paul.guelpa@gmail.com
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[github]
+  user = pguelpa
+[push]
+  default = upstream
