@@ -42,6 +42,10 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 alias gsu="git submodule update --init --recursive"
+alias be="bundle exec"
+alias bundle="nocorrect bundle"
 
 [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+__rvm_project_rvmrc
