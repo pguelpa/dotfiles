@@ -36,15 +36,28 @@ plugins=(git brew knife)
 
 source $ZSH/oh-my-zsh.sh
 
+export GOPATH=/Users/paul/Documents/go-lang
+
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export JAVA_HOME=$(/usr/libexec/java_home)
 
 export EDITOR=vim
+export DOCKER_HOST=127.0.0.1:4243
+export FLEETCTL_TUNNEL=127.0.0.1:2222
 
 alias gsu="git submodule update --init --recursive"
 alias be="bundle exec"
 alias bundle="nocorrect bundle"
+alias gt="go test './...'"
+
+alias git-clean="git branch --merged master | grep -v \"\* master\" | xargs -n 1 git branch -d"
+
+alias sfleet="FLEETCTL_TUNNEL=coreos.platform.staging.posrip.com fleetctl"
+alias pfleet="FLEETCTL_TUNNEL=... fleetctl"
+
+cdpath=($GOPATH/src/github.com/shopkeep ~/Documents/Shopkeep ~/Documents/Projects)
 
 [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"

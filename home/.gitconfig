@@ -1,5 +1,6 @@
 [alias]
   st = status
+  clean-local-branches = "!git branch --merged master | egrep -v '\\s+master$' | xargs git branch -d"
 [user]
   name = Paul Guelpa
   email = paul.guelpa@gmail.com
@@ -11,4 +12,7 @@
 [github]
   user = pguelpa
 [push]
-  default = upstream
+	default = simple
+[url "git@github.com:"]
+  insteadOf = https://github.com/
+
