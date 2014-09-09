@@ -3,16 +3,17 @@
   clean-local-branches = "!git branch --merged master | egrep -v '\\s+master$' | xargs git branch -d"
 [user]
   name = Paul Guelpa
-  email = paul.guelpa@gmail.com
+  email = paul@shopkeep.com
 [color]
   diff = auto
   status = auto
   branch = auto
-	ui = true
+  ui = true
 [github]
   user = pguelpa
 [push]
-	default = simple
+  default = simple
 [url "git@github.com:"]
   insteadOf = https://github.com/
-
+[core]
+  autocrlf = input
