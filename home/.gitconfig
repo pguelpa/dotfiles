@@ -17,3 +17,4 @@
   insteadOf = https://github.com/
 [core]
   autocrlf = input
+  excludesfile = /Users/pguelpa/.gitignore
