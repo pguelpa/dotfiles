@@ -17,11 +17,8 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export GOPATH=$HOME/Documents/go-lang
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export JAVA_HOME=$(/usr/libexec/java_home)
 export EDITOR=vim
-export DOCKER_HOST=tcp://127.0.0.1:4243
-export FLEETCTL_TUNNEL=127.0.0.1:2222
 
 alias gsu="git submodule update --init --recursive"
 alias be="bundle exec"
@@ -29,10 +26,12 @@ alias bundle="nocorrect bundle"
 
 alias git-clean="git branch --merged master | grep -v \"\* master\" | xargs -n 1 git branch -d"
 
-alias sfleet="FLEETCTL_TUNNEL=coreos.platform.staging.posrip.com fleetctl"
-alias pfleet="FLEETCTL_TUNNEL=coreos.platform.production.posrip.com fleetctl"
+docker-clean() {
+  docker ps -a | grep 'Exited' | awk '{print $1}' | xargs docker rm;
+  docker images | grep '<none>' | awk '{print $3}' | xargs docker rmi;
+}
 
-cdpath=($GOPATH/src/github.com/shopkeep $HOME/Documents/Shopkeep $HOME/Documents/Projects)
+cdpath=($HOME/Documents/Projects)
 
 [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
