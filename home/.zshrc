@@ -35,4 +35,5 @@ cdpath=($HOME/Documents/Projects)
 
 [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
 
+# Setup rbenv
 eval "$(rbenv init -)"
