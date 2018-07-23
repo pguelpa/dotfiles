@@ -1,9 +1,11 @@
 [alias]
   st = status
   clean-local-branches = "!git branch --merged master | egrep -v '\\s+master$' | xargs git branch -d"
+  clean-developed-branches = "!git branch --merged develop | egrep -v '\\s+develop$' | xargs git branch -d"
+  pending = "log --oneline production/master..staging/master"
 [user]
   name = Paul Guelpa
-  email = paul@shopkeep.com
+  email = paul@chexology.com
 [color]
   diff = auto
   status = auto
@@ -18,3 +20,8 @@
 [core]
   autocrlf = input
   excludesfile = /Users/pguelpa/.gitignore
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

@@ -16,7 +16,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export GOPATH=$HOME/Documents/go-lang
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:/Users/pguelpa/.cargo/bin
 export JAVA_HOME=$(/usr/libexec/java_home)
 export EDITOR=vim
 
@@ -33,7 +33,13 @@ docker-clean() {
 
 cdpath=($HOME/Documents/Projects)
 
-[[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
+export NVM_DIR="$HOME/.nvm"
+source "/usr/local/opt/nvm/nvm.sh"
 
 # Setup rbenv
 eval "$(rbenv init -)"
+
+# Use Homebrew's Python
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+export PATH=/Users/pguelpa/.local/bin/luna-studio:$PATH
