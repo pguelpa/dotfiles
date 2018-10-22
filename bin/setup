@@ -1,0 +1,28 @@
+#!/bin/bash
+
+set -o errexit -o nounset -o pipefail
+
+#
+# Variables
+#
+DOTFILES=$(dirname $(dirname $0))/home
+
+#
+# Install Homebrew
+#
+if ! type "brew" &> /dev/null; then
+  echo "Installing Homebrew"
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+  echo "Homebrew installed"
+fi
+
+# Brew bundle everything in the Brewfile
+brew bundle
+
+# Install dotfiles
+echo "Linking dotfiles"
+rcup -x Brewfile -x README.md -x bin/setup
+
+# Set default shell
+chsh -s /bin/zsh
