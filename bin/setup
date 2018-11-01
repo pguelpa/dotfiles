@@ -25,4 +25,7 @@ echo "Linking dotfiles"
 rcup -x Brewfile -x README.md -x bin/setup
 
 # Set default shell
-chsh -s /bin/zsh
+if [[ "$SHELL" != "/bin/zsh" ]]; then
+  echo "Setting default shell"
+  chsh -s /bin/zsh
+fi
