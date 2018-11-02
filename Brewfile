@@ -16,6 +16,7 @@ brew "rbenv"
 brew "tmux"
 
 # Applications
+cask "1password"
 cask "atom"
 cask "docker"
 cask "firefox"
