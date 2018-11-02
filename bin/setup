@@ -20,6 +20,9 @@ fi
 # Brew bundle everything in the Brewfile
 brew bundle
 
+# Install any App Store apps
+mas install 413857545 # Divvy window manager
+
 # Install Oh-My-ZSH before linking our dotfiles
 if [ ! -d ~/.oh-my-zsh ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

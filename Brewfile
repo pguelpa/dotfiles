@@ -33,7 +33,6 @@ cask "tableplus"
 
 # General Applications
 cask "1password"
-cask "divvy"
 cask "firefox"
 cask "google-chrome"
 cask "slack"
