@@ -1,4 +1,7 @@
-dotfiles
-========
+# dotfiles
 
-Dotfiles
+My Dotfiles
+
+```
+bin/setup
+```

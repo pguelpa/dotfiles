@@ -22,6 +22,7 @@ brew bundle
 
 # Install any App Store apps
 mas install 413857545 # Divvy window manager
+mas install 1441195209 # WireGuard
 
 # Install Oh-My-ZSH before linking our dotfiles
 if [ ! -d ~/.oh-my-zsh ]; then

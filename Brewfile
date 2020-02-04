@@ -24,12 +24,14 @@ cask "java"
 cask "docker"
 cask "dropbox"
 cask "google-backup-and-sync"
+cask "kebase"
 
 # Development Applications
-cask "atom"
 cask "iterm2"
+cask "mitproxy"
 cask "sequel-pro"
 cask "tableplus"
+cask "visual-studio-code"
 
 # General Applications
 cask "1password"
@@ -38,5 +40,4 @@ cask "google-chrome"
 cask "slack"
 cask "sonos"
 cask "spotify"
-cask "tunnelbear'"
 cask "typora"
