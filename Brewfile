@@ -17,18 +17,18 @@ brew "postgresql"
 brew "rbenv"
 brew "redis"
 brew "tmux"
-brew "yarn", args: ["without-node"]
+brew "yarn", args: ["ignore-dependencies"]
 cask "java"
 
 # Utilities
 cask "docker"
 cask "dropbox"
 cask "google-backup-and-sync"
-cask "kebase"
+cask "keybase"
 
 # Development Applications
 cask "iterm2"
-cask "mitproxy"
+brew "mitmproxy"
 cask "sequel-pro"
 cask "tableplus"
 cask "visual-studio-code"

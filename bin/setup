@@ -21,8 +21,9 @@ fi
 brew bundle
 
 # Install any App Store apps
-mas install 413857545 # Divvy window manager
-mas install 1441195209 # WireGuard
+echo "Installing App Store apps"
+mas install 413857545     # Divvy window manager
+mas install 1451685025    # WireGuard
 
 # Install Oh-My-ZSH before linking our dotfiles
 if [ ! -d ~/.oh-my-zsh ]; then
@@ -38,3 +39,5 @@ if [[ "$SHELL" != "/bin/zsh" ]]; then
   echo "Setting default shell"
   chsh -s /bin/zsh
 fi
+
+echo "Done!"
