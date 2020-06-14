@@ -9,15 +9,21 @@ tap "thoughtbot/formulae"
 brew "mas" # For installing Mac Application Store applications
 brew "rcm" # For managing dotfiles
 
+# Databases
+brew "mysql"
+brew "postgresql"
+brew "redis"
+
 # Development Tools
 brew "awscli"
-brew "mysql"
-brew "nvm"
-brew "postgresql"
-brew "rbenv"
-brew "redis"
 brew "tmux"
+
+# Language Management
+brew "nvm"
+brew "rbenv"
 brew "yarn", args: ["ignore-dependencies"]
+brew "pyenv"
+brew "pyenv-virtualenv"
 cask "java"
 
 # Utilities

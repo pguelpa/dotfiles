@@ -3,9 +3,10 @@
   clean-local-branches = "!git branch --merged master | egrep -v '\\s+master$' | xargs git branch -d"
   clean-developed-branches = "!git branch --merged develop | egrep -v '\\s+develop$' | xargs git branch -d"
   pending = "log --oneline production/master..staging/master"
+  fixup = "commit --amend -C HEAD"
 [user]
   name = Paul Guelpa
-  email = paul@chexology.com
+  email = paul@tryfi.com
 [color]
   diff = auto
   status = auto

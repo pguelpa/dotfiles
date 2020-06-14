@@ -16,9 +16,12 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export GOPATH=$HOME/Documents/go-lang
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:/Users/pguelpa/.cargo/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:~/.cargo/bin
 export JAVA_HOME=$(/usr/libexec/java_home)
 export EDITOR=vim
+
+# Fi Specific path
+export PATH=$PATH:~/gcc-arm-none-eabi-7-2018-q2-update/bin
 
 alias gsu="git submodule update --init --recursive"
 alias be="bundle exec"
@@ -44,3 +47,6 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 export PATH=/Users/pguelpa/.local/bin/luna-studio:$PATH
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
