@@ -1,12 +1,14 @@
 [alias]
   st = status
-  clean-local-branches = "!git branch --merged master | egrep -v '\\s+master$' | xargs git branch -d"
+  clean-master-branches = "!git branch --merged master | egrep -v '\\s+master$' | xargs git branch -d"
+  clean-main-branches = "!git branch --merged main | egrep -v '\\s+main$' | xargs git branch -d"
   clean-developed-branches = "!git branch --merged develop | egrep -v '\\s+develop$' | xargs git branch -d"
   pending = "log --oneline production/master..staging/master"
   fixup = "commit --amend -C HEAD"
 [user]
   name = Paul Guelpa
   email = paul@tryfi.com
+	signingkey = /Users/pguelpa/.ssh/id_ed25519.pub
 [color]
   diff = auto
   status = auto
@@ -26,3 +28,7 @@
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true

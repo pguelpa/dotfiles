@@ -29,6 +29,15 @@ alias bundle="nocorrect bundle"
 
 alias git-clean="git branch --merged master | grep -v \"\* master\" | xargs -n 1 git branch -d"
 
+function git-clean-squashed() {
+  MAIN_BRANCH="${1:-main}"
+  echo "Main Branch: $MAIN_BRANCH"
+  git checkout -q $MAIN_BRANCH && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch
+  do
+    mergeBase=$(git merge-base $MAIN_BRANCH $branch) && [[ $(git cherry $MAIN_BRANCH $(git commit-tree $(git rev-parse $branch\^{tree}) -p $mergeBase -m _)) == '-'* ]] && git branch -D $branch
+  done
+}
+
 docker-clean() {
   docker ps -a | grep 'Exited' | awk '{print $1}' | xargs docker rm;
   docker images | grep '<none>' | awk '{print $3}' | xargs docker rmi;
@@ -50,3 +59,25 @@ export PATH=/Users/pguelpa/.local/bin/luna-studio:$PATH
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+ggrep() {
+  find . -type d -name .git -maxdepth 2 | while read line; do
+    (
+      cd $line/..
+      cwd=$(pwd)
+      echo "$(tput setaf 2)$cwd$(tput sgr0)"
+      git --no-pager grep "$@"
+    )
+  done
+}
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/pguelpa/Documents/Code/analytics-backend/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/pguelpa/Documents/Code/analytics-backend/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/pguelpa/Documents/Code/analytics-backend/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/pguelpa/Documents/Code/analytics-backend/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/pguelpa/Documents/Code/analytics-backend/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/pguelpa/Documents/Code/analytics-backend/node_modules/tabtab/.completions/slss.zsh
+
